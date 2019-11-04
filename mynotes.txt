@@ -1,0 +1,36 @@
+cache -- not a great data storage things, need to set up specifically, has code within this chunk changed? but it won't know if there are dependencies among chunks. use it as a debugging tool, not a way to avoid re-running.
+Can otpions > clear knitr chache
+
+Another option: eval = FALSE (don't evaluate this chunk)
+Can also cause issues with dependencies later, but can be useful to cruise by to get set up correct
+
+Code chunk paths
+- by default .rmd treats working directory as where the file is saved, not project
+- because pandoc needs to create a bunch of temp files
+- but use here::here() which will work in script or in project
+
+LaTeX equations
+- can use LaTeX packages
+
+- Debugging in R markdown can be tricky, can set error = TRUE in chuck options to help figure things out (it will continue running if it hits an error in that code chunk)
+
+
+Dan's workflow
+- what do you use rmd projects for?
+- more small chunks or fewer bigger ones?
+  - mixture of 2: load data, filter data, plot data etc.
+  - separate chucks for every figure is useful for cross-referencing
+  - same with tables
+- simple analysis? all in rmd
+- more complicated? run scripts with analysis and then save results which are fed to r markdown
+
+Bookdown
+- cross-reference for tables and figures
+- only work with bookdown, but there's no downside to using bookdown
+
+Dissertation
+- pros and cons
+- Dan went that way, dynamic code heavy
+- put it together using knit_child
+
+!! dissertations in markdown workshop!
